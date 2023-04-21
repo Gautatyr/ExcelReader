@@ -2,10 +2,11 @@
 
 public class Aliment
 {
+    public int Id { get; set; }
     public string? Name { get; set; }
-    public double? DailyDosage { get; set; }
-    public double? Calories { get; set; }
-    public double? Proteines { get; set; }
-    public double DailyCalories { get; set; }
-    public double DailyProteines { get; set; }
+    public string? DailyDosage { get; set; } = "Unknown";
+    public string? Calories { get; set; } = "Unknown";
+    public string? Proteines { get; set; } = "Unknown";
+    public string? DailyCalories { get; set; } = "Unknown";
+    public string? DailyProteines { get; set; } = "Unknown";
 }

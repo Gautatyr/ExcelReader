@@ -1,11 +1,11 @@
 ﻿using ExcelReader.Model;
-using Microsoft.EntityFrameworkCore;
 
 namespace ExcelReader;
 
 public class DatabaseInteraction
 {
     private readonly ExcelReaderContext Context;
+
     public DatabaseInteraction(ExcelReaderContext context)
     {
         Context = context;
@@ -18,5 +18,19 @@ public class DatabaseInteraction
             Context.Aliments.Add(aliment);
             Context.SaveChanges();
         }
+    }
+
+    public List<Aliment> GetRandomAliments()
+    {
+        List<Aliment> aliments = new();
+        Random random = new();
+        int numberOfAliments = random.Next(1, 5);
+
+        for (int i = 0; i < numberOfAliments; i++)
+        {
+            aliments.Add(Context.Aliments.Find(random.Next(1, 15)));
+        }
+
+        return aliments;
     }
 }
